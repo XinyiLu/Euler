@@ -79,11 +79,43 @@ public class IntegerOperation {
 		}
 		return true;
 	}
+	
+	public int smallestMultiple(int limit){
+		int sum=1;
+		ArrayList<Integer> divisors=new ArrayList<Integer>();
+		for(int i=2;i<=limit;i++){
+			for(int j=0;j<divisors.size();j++){
+				int div=divisors.get(j);
+				if(i%div==0){
+					divisors.remove((Object)div);
+				}
+			}
+			divisors.add(i);
+		}
+		
+		for(int i=2;i<limit;i++){
+			boolean hasInt=false;
+			for(int j=0;j<divisors.size();j++){
+				if(divisors.get(j)%i==0){
+					hasInt=true;
+					divisors.set(j,divisors.get(j)/i);
+				}
+			}
+			
+			if(hasInt){
+				sum*=i;
+				i--;
+			}
+		}
+		
+		return sum;
+	}
+	
+	
 	public static void main(String[] args){
 		IntegerOperation oper=new IntegerOperation();
-		//System.out.println(Long.MAX_VALUE);
 		
-		System.out.println(oper.largestPalindrome(100, 999));
+		System.out.println(oper.smallestMultiple(20));
 	}
 }
 
