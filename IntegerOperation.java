@@ -111,11 +111,31 @@ public class IntegerOperation {
 		return sum;
 	}
 	
+	long sumOfSquares(int limit){
+		long sum=0;
+		for(int i=1;i<=limit;i++){
+			sum+=i*i;
+		}
+		return sum;
+	}
+	
+	long sumOfNumbers(int limit){
+		long sum=0;
+		for(int i=1;i<=limit;i++){
+			sum+=i;
+		}
+		return sum;
+	}
+	
+	long diffOfSquares(int limit){
+		long sum=sumOfNumbers(limit);
+		return sum*sum-sumOfSquares(limit);
+	}
 	
 	public static void main(String[] args){
 		IntegerOperation oper=new IntegerOperation();
 		
-		System.out.println(oper.smallestMultiple(20));
+		System.out.println(oper.diffOfSquares(100));
 	}
 }
 
