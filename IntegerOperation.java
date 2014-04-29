@@ -540,11 +540,13 @@ public class IntegerOperation {
 		return sum;
 	}
 	
+
 	
 	
 	public static void main(String[] args){
 		IntegerOperation oper=new IntegerOperation();
-		System.out.println(oper.addAllDigitsInString(oper.Pow("2",1000)));
+		//System.out.println(oper.addAllDigitsInString(oper.Pow("2",1000)));
+		
 	}
 	
 	

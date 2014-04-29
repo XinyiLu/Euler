@@ -12,6 +12,14 @@ public class StringMultiply {
 		return str;
 	}
 
+	String getFactorial(int number){
+		String str="1";
+		for(int i=1;i<=number;i++){
+			str=multiply(str,Integer.toString(i));
+		}
+		return str;
+	}
+	
 	String multiply(String str1,String str2){
 		if(str1.equals("1")||str2.equals("1")){
 			return str1.equals("1")?str2:str1;
@@ -87,5 +95,11 @@ public class StringMultiply {
 			advance/=10;
 		}
 		return str;
+	}
+	
+	public static void main(String[] args){
+		StringMultiply oper=new StringMultiply();
+		IntegerOperation intOper=new IntegerOperation();
+		System.out.println(intOper.addAllDigitsInString(oper.getFactorial(100)));
 	}
 }

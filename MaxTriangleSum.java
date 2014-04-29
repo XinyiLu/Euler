@@ -48,6 +48,7 @@ public class MaxTriangleSum {
 			if(line.isEmpty())
 				break;
 			list.add(line);
+			System.out.println(line);
 			
 		}
 		MaxTriangleSum sol=new MaxTriangleSum();
