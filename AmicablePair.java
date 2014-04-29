@@ -17,9 +17,11 @@ public class AmicablePair {
 	}	
 	
 	HashMap<Integer,Unit> map;
+	HashSet<Integer> abundantSet; 
 	public AmicablePair(){
 		map=new HashMap<Integer,Unit>();
 		map.put(1,new Unit());
+		abundantSet=new HashSet<Integer>();
 	}
 	
 	public Unit getDivisors(int number){
@@ -47,11 +49,33 @@ public class AmicablePair {
 		for(Integer div:unit.divisorSet){
 			unit.sum+=div;
 		}
-		
+		if(unit.sum>number){
+			abundantSet.add(number);
+		}
 		map.put(number,unit);
 		return unit;
 	}
 		
+	public boolean sumOfTwoAbundantNumbers(int number){
+		Unit unit=getDivisors(number);
+		for(Integer div:abundantSet){
+			if(abundantSet.contains(number-div)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public long getSumOfNonAbundantNumbers(int limit){
+		long sum=0;
+		for(int i=1;i<=limit;i++){
+			if(!sumOfTwoAbundantNumbers(i)){
+				sum+=i;
+			}
+		}
+		return sum;
+	}
+	
 	public int getAmicableSum(int limit){
 		HashSet<Integer> set=new HashSet<Integer>();
 		for(int number=1;number<limit;number++){
@@ -76,6 +100,6 @@ public class AmicablePair {
 
 	public static void main(String[] args){
 		AmicablePair sol=new AmicablePair();
-		System.out.println(sol.getAmicableSum(10000));
+		System.out.println(sol.getSumOfNonAbundantNumbers(28123));
 	}
 }
