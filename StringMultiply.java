@@ -97,9 +97,26 @@ public class StringMultiply {
 		return str;
 	}
 	
+	long getNDigitFibonacci(int n){
+		String prev1="1";
+		String prev2="1";
+		long count=3;
+		String cur="2";
+		while(cur.length()<n){
+			prev1=prev2;
+			prev2=cur;
+			cur=addString(prev1,prev2);
+			count++;
+		}
+		return count;
+	}
+	
+	
+	
 	public static void main(String[] args){
 		StringMultiply oper=new StringMultiply();
-		IntegerOperation intOper=new IntegerOperation();
-		System.out.println(intOper.addAllDigitsInString(oper.getFactorial(100)));
+		System.out.println(oper.getNDigitFibonacci(1000));
+		//IntegerOperation intOper=new IntegerOperation();
+		//System.out.println(intOper.addAllDigitsInString(oper.getFactorial(100)));
 	}
 }
