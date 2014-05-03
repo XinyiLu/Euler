@@ -118,5 +118,6 @@ public class StringMultiply {
 		System.out.println(oper.getNDigitFibonacci(1000));
 		//IntegerOperation intOper=new IntegerOperation();
 		//System.out.println(intOper.addAllDigitsInString(oper.getFactorial(100)));
+		
 	}
 }
